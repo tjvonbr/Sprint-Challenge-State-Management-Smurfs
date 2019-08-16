@@ -26,3 +26,33 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.form-wrapper {
+  width: 50%;
+  margin: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 25%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.submit-btn {
+  width: 10%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.submit-btn:hover {
+  cursor: pointer;
+}
+
+.card-wrapper {
+  margin-top: 20px;
+}
