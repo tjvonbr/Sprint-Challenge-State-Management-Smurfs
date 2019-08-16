@@ -7,35 +7,41 @@ const SmurfForm = props => {
   const [newSmurf, setNewSmurf] = useState({name: '', age: '', height: ''});
 
   const handleChanges = event => {
-    setNewSmurf(event.target.value)
+    setNewSmurf({...newSmurf, [event.target.name]: event.target.value})
   };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(newSmurf)
+    props.registerSmurf(newSmurf)
+  }
 
   return (
     <div className="form-wrapper">
-      <form action="submit">
+      <form action="submit"
+            onSubmit={ handleSubmit }>
         <input className="form-input"
           placeholder="Please enter your name."
           type="text"
           value={ newSmurf.name }
-          name="value"
+          name="name"
           onChange={ handleChanges }
         />
         <input className="form-input"
           placeholder="Please enter your age."
           type="text"
           value={ newSmurf.age }
-          name="value"
+          name="age"
           onChange={ handleChanges }
         />
         <input className="form-input"
           placeholder="Please enter your height in centimeters."
           type="text"
           value={ newSmurf.height }
-          name="value"
+          name="height"
           onChange={ handleChanges }
         />
-        <button className="btn submit-btn"
-                onClick={ props.registerSmurf }>
+        <button className="btn submit-btn">
                   Submit Form
         </button>
       </form>
